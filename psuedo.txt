@@ -1,0 +1,18 @@
+31
+
+take number and split it into two numbers numA = 3, numB = 1
+
+if 
+cardValue = 1 then cardValue = 'A'
+if 
+numB = 1 then numB = 'C'
+numB = 2 then numB = 'H'
+numB = 3 then numB = 'S'
+numB = 4 then numB = 'D'
+
+
+
+
+
+loop through data.cards
+if cards.code = 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magic Trick</title>
+  </head>
+  <body>
+    <div class="head">
+      <h1 id="math">MATH MEETS MAGIC</h1>
+    </div>
+    <p>Think of any card in a regular 52 card deck</p>
+    <p>Remember this card and prepare for a little math</p>
+    <p>You are going to take the value of your card and multiply it by 2</p>
+    <ul>
+      <li>Aces = 1</li>
+      <li>2-10 remain the same</li>
+      <li>Kings = 13</li>
+      <li>Queens = 12</li>
+      <li>Jacks = 11</li>
+    </ul>
+    <p>Now add 3 to that new number</p>
+    <p>Muliply it by 5</p>
+    <p>
+      Add 1 to that number if your card is a club, 2 if it's a heart, 3 spades,
+      and 4 for diamonds
+    </p>
+    <p>Now enter your final number and click Submit</p>
+    <p id="result"></p>
+    <div id="finalNumber">
+      <input type="number" id="solution" />
+      <button id="sumbitButton" onclick="splitAndLog()">Submit</button>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
