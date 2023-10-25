@@ -1,3 +1,5 @@
+let arrOfCards = []
+
 let newDeck = () => {
     return fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
         .then(response => response.json())
@@ -15,8 +17,8 @@ newDeck()
         fetch(`https://deckofcardsapi.com/api/deck/${deck}/draw/?count=52`)
             .then(res => res.json())
             .then(data => {
-                const arrOfCards = data.cards
-                // console.log(arrOfCards);
+                 arrOfCards = data.cards
+                console.log(arrOfCards);
             });
     }
       
@@ -86,21 +88,31 @@ function splitAndLog() {
     let userNumber = document.getElementById('solution').value;
 
     if (userNumber) {
-
         userNumber = parseInt(userNumber);
-
         userNumber -= 15;
 
         if (userNumber >= 10 && userNumber <= 99) {
             const { firstDigit, secondDigit } = splitNumber(userNumber);
             let cardCode = firstDigit + secondDigit;
-            console.log("Your card is: " + cardCode);
+            findAndDisplayCard(cardCode);
         } else if (userNumber >= 100 && userNumber <= 999) {
-            splitNumberby3(userNumber);
+            findAndDisplayCard(splitNumberby3(userNumber));
         } else {
             console.log("Please enter a valid two-digit or three-digit number.");
         }
     } else {
         console.log("Please enter a valid number.");
     }
+}
+
+function findAndDisplayCard(cardCode) {
+    for (let i = 0; i < arrOfCards.length; i++) {
+        let card = arrOfCards[i];
+        if (card.code === cardCode) {
+            document.getElementById("result").src = card.image;
+            console.log(card.image);
+            return;
+        }
+    }
+    console.log("Card not found for code: " + cardCode);
 }
